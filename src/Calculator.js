@@ -5,8 +5,32 @@ class Calculator extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      calculatorState: 0
+      calculatorState: 0,
+      arrayOfValues: [],
+      leftSideValues: [
+        {value: '1'},
+        {value: '2'},
+        {value: '3'},
+        {value: '4'},
+        {value: '5'},
+        {value: '6'},
+        {value: '7'},
+        {value: '8'},
+        {value: '9'},
+        {value: '0'},
+        {value: '.'},
+        {bsStyle: "success",value: '='}],
+      rightSideValues: [
+        {bsStyle: "info", value: '('},
+        {bsStyle: "info", value: ')'},
+        {bsStyle: "info", value: '+'},
+        {bsStyle: "info", value: '-'},
+        {bsStyle: "info", value: '*'},
+        {bsStyle: "info", value: '/'},
+        {bsStyle: "danger", value: 'clr'},
+        {bsStyle: "info", value: '%'}]
     };
+
     this.takeValue = this.takeValue.bind(this);
   }
 
@@ -15,34 +39,32 @@ class Calculator extends Component {
       arrayOfValues: [...this.state.arrayOfValues, value]
     })
   }
+  renderLeftSideValues(){
+    return this.state.leftSideValues.map((valueObject) => {
+      return (
+        <Buttons key={valueObject.value} bsStyle={valueObject.bsStyle} takeValue={this.takeValue} values={valueObject.value} />
+      );
+    })
+  }
+
+  renderRightSideValues(){
+    return this.state.rightSideValues.map((valueObject) => {
+      return (
+        <Buttons key={valueObject.value} bsStyle={valueObject.bsStyle} takeValue={this.takeValue} values={valueObject.value} />
+      );
+    })
+  }
+
   render() {
     return (
       <div className="Calculator">
         <div className="displayView"><h4>{this.state.arrayOfValues}</h4></div>
         <div className="row">
             <div className="leftSide">
-              <Buttons takeValue={this.takeValue} values="1" />
-              <Buttons takeValue={this.takeValue} values="2" />
-              <Buttons takeValue={this.takeValue} values="3" />
-              <Buttons takeValue={this.takeValue} values="4" />
-              <Buttons takeValue={this.takeValue} values="5" />
-              <Buttons takeValue={this.takeValue} values="6" />
-              <Buttons takeValue={this.takeValue} values="7" />
-              <Buttons takeValue={this.takeValue} values="8" />
-              <Buttons takeValue={this.takeValue} values="9" />
-              <Buttons takeValue={this.takeValue} values="0" />
-              <Buttons takeValue={this.takeValue} values="." />
-              <Buttons bsStyle="success" takeValue={this.takeValue} values="=" />
+              {this.renderLeftSideValues()}
             </div>
             <div className="rightSide">
-              <Buttons bsStyle="info" takeValue={this.takeValue} values="(" />
-              <Buttons bsStyle="info" takeValue={this.takeValue} values=")" />
-              <Buttons bsStyle="info" takeValue={this.takeValue} values="+" />
-              <Buttons bsStyle="info" takeValue={this.takeValue} values="-" />
-              <Buttons bsStyle="info" takeValue={this.takeValue} values="*" />
-              <Buttons bsStyle="info" takeValue={this.takeValue} values="/" />
-              <Buttons bsStyle="danger" takeValue={this.takeValue} values="clr" />
-              <Buttons bsStyle="info" takeValue={this.takeValue} values="%" />
+             {this.renderRightSideValues()}
             </div>
 
         </div>
