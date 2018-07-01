@@ -5,8 +5,7 @@ class Calculator extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      calculatorState: 0,
-      arrayOfValues: []
+      calculatorState: 0
     };
     this.takeValue = this.takeValue.bind(this);
   }
