@@ -1,7 +1,7 @@
 {
-  "short_name": "Calculator App",
-  "name": "Calculate",
-  "start_url": "./index.html",
+  "short_name": "Calculator",
+  "name": "Calculator application",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
