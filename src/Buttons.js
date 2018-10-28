@@ -2,8 +2,6 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-
-
 function Buttons(props){
     function handleClick() {
       props.takeValue(props.values)

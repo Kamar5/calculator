@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import App from './App';
+import Calculator from './Calculator';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+it('should have the calculator component', () => {
+  const wrapper = shallow(<App />);
+  expect(wrapper.find(Calculator).length).toBe(1);
+})

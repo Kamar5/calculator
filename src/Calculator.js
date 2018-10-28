@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './Calculator.css';
 import Buttons from "./Buttons";
 
-class Calculator extends Component {
+class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
