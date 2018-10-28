@@ -5,18 +5,22 @@
   "homepage": "http://kamar5.github.io/calculator",
   "dependencies": {
     "react": "^16.6.0",
-    "react-dom": "^16.6.0",
-    "react-scripts": "2.0.5",
+    "react-autobind": "^1.0.6",
     "react-bootstrap": "^0.31.5",
-    "react-autobind": "^1.0.6"
+    "react-dom": "^16.6.0",
+    "react-scripts": "2.0.5"
   },
   "devDependencies": {
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "react-test-renderer": "^16.6.0",
     "gh-pages": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test-coverage": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"

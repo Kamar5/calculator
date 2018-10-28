@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './Calculator.css';
 import Buttons from "./Buttons";
 
 class Calculator extends Component {
@@ -58,6 +59,7 @@ class Calculator extends Component {
   render() {
     return (
       <div className="Calculator">
+        <div className='title'>Calculator</div> 
         <div className="displayView"><h4>{this.state.arrayOfValues}</h4></div>
         <div className="row">
             <div className="leftSide">
