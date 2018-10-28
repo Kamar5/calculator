@@ -2,33 +2,32 @@
   "name": "calculator-app",
   "version": "1.0.0",
   "description": "calculator application",
-  "main": "index.js",
+  "private": true,
+  "homepage": "http://kamar5.github.io/calculator-app",
   "scripts": {
-    "start": "webpack-dev-server --hot",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "lint": "esw webpack.config.* src --color",
-    "lint:watch": "npm run lint -- --watch"
+    "lint:watch": "npm run lint -- --watch",
+    "test": "react-scripts test --env=jsdom",
+    "test-coverage": "react-scripts test --env=jsdom --coverage --collectCoverageFrom=src/components/*.js ",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "Kamar",
   "license": "ISC",
   "dependencies": {
-    "babel-loader": "^7.1.2",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "react": "^16.0.0",
+    "react": "^16.4.1",
     "react-bootstrap": "^0.31.5",
-    "react-dom": "^16.0.0",
-    "webpack": "^3.7.1"
+    "react-autobind": "^1.0.6",
+    "react-dom": "^16.4.1",
+    "react-scripts": "1.1.4"
   },
   "devDependencies": {
-    "babel": "^6.23.0",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-stage-2": "^6.24.1",
     "eslint": "^5.0.1",
     "eslint-plugin-react": "^7.10.0",
     "eslint-watch": "^4.0.0",
-    "webpack-dev-server": "^2.9.1"
+    "gh-pages": "^1.2.0"
   }
 }
