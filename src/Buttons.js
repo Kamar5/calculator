@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-function Buttons(props){
+export default function Buttons(props){
     function handleClick() {
       props.takeValue(props.values)
     }
@@ -14,5 +14,3 @@ Buttons.propTypes = {
   values: PropTypes.string,
   bsStyle: PropTypes.string
 };
-
-export default Buttons;
