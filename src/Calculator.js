@@ -7,7 +7,8 @@ class Calculator extends React.Component {
     super(props);
     this.state = {
       calculatorState: 0,
-      arrayOfValues: [],
+      viewValue: [],
+      results: '',
       leftSideValues: [
         {value: '1'},
         {value: '2'},
@@ -33,12 +34,33 @@ class Calculator extends React.Component {
     };
 
     this.takeValue = this.takeValue.bind(this);
+    this.comparison = this.comparison.bind(this);
+  }
+  comparison(arry, value) {
+    return arry.find((item) => item === value)    
   }
 
   takeValue(value){
-    this.setState({
-      arrayOfValues: [...this.state.arrayOfValues, value]
-    })
+    const tempArray = this.state.viewValue;
+    const arrayOfDec = ['+','*','/',')','%','(','-', '.', '=']
+    if(tempArray.length === 0 && this.comparison(['clr','+','*','/',')','%'], value)){
+      return;
+    }else{
+      if(value === 'clr'){
+        this.setState({
+          viewValue: []
+        })
+      }else{
+        if((tempArray[tempArray.length-1] === value || this.comparison(arrayOfDec,tempArray[tempArray.length-1])) && this.comparison(arrayOfDec, value)){
+          return;
+        }
+        this.setState({
+          viewValue: [...tempArray, value]
+        })
+      }
+   }
+
+    
   }
   renderLeftSideValues(){
     return this.state.leftSideValues.map((valueObject) => {
@@ -59,8 +81,9 @@ class Calculator extends React.Component {
   render() {
     return (
       <div className="Calculator">
-        <div className='title'>Calculator</div> 
-        <div className="displayView"><h4>{this.state.arrayOfValues}</h4></div>
+        <span className='title'>Calculator</span> 
+        <span className='results'>{this.state.results}</span> 
+        <div className="displayView"><h4>{this.state.viewValue}</h4></div>
         <div className="row">
             <div className="leftSide">
               {this.renderLeftSideValues()}

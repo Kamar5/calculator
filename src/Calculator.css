@@ -4,7 +4,7 @@
     height: 40px;
     border: 1px solid #ccc;
     margin-left: 15px;
-    margin-top: 15px;
+    text-align: right;
 }
 .Calculator .row{
 width: 400px;
@@ -26,7 +26,8 @@ margin: 5px;
 }
 
 .displayView h4{
-margin-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
 }
 
 .Calculator {
@@ -40,5 +41,12 @@ margin-left: 5px;
     max-width:100%;
     max-height:100%;
     overflow:auto;
+}
+
+.results{
+    float: right;
+    margin-right: 110px;
+    padding-top: 3px;
+    font-family: monospace; 
 }
   
